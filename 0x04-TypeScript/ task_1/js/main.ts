@@ -1,20 +1,25 @@
-// 1. Définition de l’interface Teacher
+// 1. Définition de Teacher
 interface Teacher {
-  readonly firstName: string;     // ne peut pas être modifié après initialisation
-  readonly lastName: string;      // idem
-  fullTimeEmployee: boolean;      // toujours défini
-  yearsOfExperience?: number;     // optionnel
-  location: string;               // toujours défini
-  [key: string]: any;             // permet d’ajouter d’autres attributs (ex: contract)
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
-// 2. Exemple fourni dans l’énoncé
-const teacher3: Teacher = {
-  firstName: "John",
-  fullTimeEmployee: false,
-  lastName: "Doe",
-  location: "London",
-  contract: false,
+// 2. Définition de Directors qui étend Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+// 3. Exemple d’utilisation
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
 };
 
-console.log(teacher3);
+console.log(director1);
